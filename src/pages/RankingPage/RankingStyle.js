@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerHome = styled.div`
+export const ContainerRanking = styled.div`
     main{
         width: 100%;
         margin-top: 5%;

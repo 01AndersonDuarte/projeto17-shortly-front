@@ -4,23 +4,24 @@ import { useEffect, useState } from "react";
 import Links from "./Links";
 import ranking from "../../assets/ranking.png";
 import { LoadingCircle } from "../../components/Loading/Loading";
-import { ContainerHome, FrameRanking } from "./HomeStyle";
+import { ContainerRanking, FrameRanking } from "./RankingStyle";
 import Header from "../../components/Header/Header";
 
-export default function HomePage() {
+export default function RankingPage() {
     const [linksRanking, setLinksRanking] = useState(null);
 
     useEffect(() => {
         const url = process.env.REACT_APP_GET_RANKING;
         axios.get(url).then((response) => {
-            setLinksRanking(response.data)
+            console.log(response.data)
+            setLinksRanking(response.data);
         }).catch((response) => {
-            console.log(response)
+            console.log(response);
         });
     }, []);
 
     return (
-        <ContainerHome>
+        <ContainerRanking>
             <Header />
             <main>
                 <div>
@@ -38,6 +39,6 @@ export default function HomePage() {
                     />))}
                 </FrameRanking>
             </main>
-        </ContainerHome>
+        </ContainerRanking>
     );
 }

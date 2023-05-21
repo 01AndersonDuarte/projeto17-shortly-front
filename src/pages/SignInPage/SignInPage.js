@@ -2,17 +2,19 @@ import { useState } from "react";
 import axios from "axios";
 
 import { ContainerSign } from "../../components/Sign/SignStyle";
-import { FormStyled, InputStyled, ButtonStyled } from "../../components/Sign/FormSign";
+import { FormStyled, InputStyled, ButtonStyled, Error } from "../../components/Sign/FormSign";
 import { LoadingThreeDots } from "../../components/Loading/Loading";
 import Header from "../../components/Header/Header";
 
 export default function SignInPage() {
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [request, setRequest] = useState(false);
+    const [error, setError] = useState(false);
 
     function singIn(e) {
         setRequest(true);
-        e.preventDefault()
+        setError(false);
+        e.preventDefault();
 
         const url = process.env.REACT_APP_SIGN_IN_URL;
 
@@ -25,8 +27,8 @@ export default function SignInPage() {
             })
             .catch(fail => {
                 setRequest(false);
-                alert(fail.response.data)
-            })
+                setError(true);
+            });
     }
 
     function insertLoginData(event) {
@@ -61,6 +63,7 @@ export default function SignInPage() {
                     <ButtonStyled type="submit">
                         {request ? <LoadingThreeDots /> : "Entrar"}
                     </ButtonStyled>
+                    {error && <Error>E-mail ou senha incorretos.</Error>}
                 </FormStyled>
             </ContainerSign>
         </>

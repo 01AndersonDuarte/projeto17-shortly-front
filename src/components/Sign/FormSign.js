@@ -43,7 +43,7 @@ export const ButtonStyled = styled.button`
     border: none;
     font-weight: 700;
 
-    /* background-color: ${({amount})=>amount ? "#808080" : "#000000"}; */
+    background-color: #228b22;
     color: #ffffff;
     font-size: 18px;
 
@@ -51,4 +51,8 @@ export const ButtonStyled = styled.button`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+`;
+
+export const Error = styled.p`
+    color: #c4121b;
 `;
