@@ -3,18 +3,11 @@ import styled from "styled-components";
 export const ContainerHome = styled.div`
     main{
         width: 100%;
-        margin-top: 10%;
+        margin-top: 5%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-        h1{
-            font-family: 'Saira Stencil One';
-            color: #000;
-            font-weight: 400;
-            font-size: 48px;
-            margin-bottom: 3%;
-        }
         div{
             display: flex;
             align-items: center;

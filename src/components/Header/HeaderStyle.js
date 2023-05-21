@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const ContainerHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     header{
         width: 100%;
         padding: 2% 10%;
@@ -21,9 +25,19 @@ export const ContainerHeader = styled.div`
                 font-family: 'Raleway';
                 font-size: 16px;
                 font-weight: 700;
-                color: #565656;
+                /* color: #565656; */
                 margin-right: 10px;
             }
+        }
+    }
+    span{
+        margin-top: 10%;
+        h1{
+            font-family: 'Saira Stencil One';
+            color: #000;
+            font-weight: 400;
+            font-size: 48px;
+            margin-bottom: 3%;
         }
     }
 `;

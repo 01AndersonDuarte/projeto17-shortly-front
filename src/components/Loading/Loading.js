@@ -5,7 +5,7 @@ export function LoadingRings() {
         <Rings
             height="50vh"
             width="50vw"
-            color="#ffbd59"
+            color="#ccac00"
             radius="24"
             wrapperStyle={{}}
             wrapperClass=""
@@ -20,7 +20,7 @@ export function LoadingLineWave() {
         <LineWave
             height="50vh"
             width="50vw"
-            color="#ffbd59"
+            color="#ccac00"
             ariaLabel="line-wave"
             wrapperStyle={{}}
             wrapperClass=""
@@ -36,7 +36,7 @@ export function LoadingThreeDots() {
             height="20"
             width="20"
             radius="6"
-            color="#ffbd59"
+            color="#ccac00"
             ariaLabel="loading"
             background-color="transparent"
         />);
