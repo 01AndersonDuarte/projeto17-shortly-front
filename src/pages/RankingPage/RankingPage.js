@@ -15,7 +15,6 @@ export default function RankingPage() {
     useEffect(() => {
         const url = process.env.REACT_APP_GET_RANKING;
         axios.get(url).then((response) => {
-            console.log(response.data)
             setLinksRanking(response.data);
         }).catch((response) => {
             console.log(response);

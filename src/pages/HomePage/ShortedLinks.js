@@ -26,7 +26,7 @@ export default function ShortedLinks({config, userData, setReload}) {
     return (
         <ShortedLinksContainer>
             {userData ?
-                userData.shortenedUrls.map((d) =>
+                (userData.shortenedUrls[0].id!==null ? userData.shortenedUrls.map((d) =>
                     <LinkItem key={d.id}>
                         <div>
                             <p>{d.url.slice(0, 35)}{d.url.length > 35 && '...'}</p>
@@ -36,8 +36,8 @@ export default function ShortedLinks({config, userData, setReload}) {
                         <span>
                             {deleteRequest ? <LoadingThreeDots/> : <DeleteIcon onClick={() => deleteItem(d.id)} disabled={deleteRequest} />}
                         </span>
-                    </LinkItem>
-                )
+                    </LinkItem>)
+                : '')
                 :
                 <LoadingCircle />}
         </ShortedLinksContainer>

@@ -28,7 +28,7 @@ export default function HomePage() {
         axios.get(url, config).then((sucess) => {
             setUserData(sucess.data);
             const persistedAuth = JSON.parse(localStorage.getItem("auth"));
-            login({ token: persistedAuth.token, name: sucess.data.name })
+            login({ token: persistedAuth.token, name: sucess.data.name });
         }).catch((error) => {
         });
     }, [reload]);
