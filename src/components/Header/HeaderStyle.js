@@ -43,11 +43,11 @@ export const ContainerHeader = styled.div`
     }
     @media(max-width: 450px) {
         header{
-            height: 35px;
+            height: 55px;
             padding: 0 5%;
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.09);
             p{
-                font-size: 11px;
+                font-size: 17px;
             }
         }
         span{
