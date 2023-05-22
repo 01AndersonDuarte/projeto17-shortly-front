@@ -5,6 +5,7 @@ import { BsCheckAll } from "react-icons/bs";
 
 export const ContainerHome = styled.div`
     width: 100%;
+    padding: 2%;
     margin-top: 5%;
 
     display: flex;
@@ -49,7 +50,7 @@ export const FormUrl = styled.form`
 
 export const ShortedLinksContainer = styled.div`
     width: 80%;
-    padding: 0 5% 0 5%;
+    padding: 2% 3% 0 3%;
     max-height: 450px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -57,7 +58,6 @@ export const ShortedLinksContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
 
     ::-webkit-scrollbar {
         width: 2px; /* Largura da barra de rolagem */
@@ -71,6 +71,8 @@ export const ShortedLinksContainer = styled.div`
     }
     @media(max-width: 450px) {
         width: 100%;
+        border-radius: 5px;
+        border: solid 1px rgba(0, 0, 0, 0.2);
     }
 `;
 
@@ -90,7 +92,7 @@ export const LinkItem = styled.div`
         width: 90%;
         padding: 1%;
 
-        background-color: #90ee90;
+        background-color: #99e599;
         font-family: 'Raleway';
         font-weight: 600;
         color: #fff;
