@@ -36,6 +36,7 @@ export default function HomePage() {
     function shortenUrl(e) {
         setRequest(true);
         setReload(true);
+        setCopy(false);
 
         e.preventDefault();
 

@@ -31,13 +31,13 @@ export default function RankingPage() {
                 </div>
                 <FrameRanking>
                     {!linksRanking ? <LoadingCircle /> : linksRanking.map((l, i) =>
-                    (<Links
+                    {return i <= 4 ? (<Links
                         key={l.id}
                         index={i + 1}
                         name={l.name}
                         linksCount={l.linksCount}
                         visitCount={l.visitCount}
-                    />))}
+                    />) : null})}
                 </FrameRanking>
                 <StyledLink2 to={'/sign-up'}>{!auth && 'Crie sua conta para usar nosso serviço!'}</StyledLink2>
             </main>
