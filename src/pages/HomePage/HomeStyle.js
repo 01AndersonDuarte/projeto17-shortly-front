@@ -50,6 +50,7 @@ export const FormUrl = styled.form`
 export const ShortedLinksContainer = styled.div`
     width: 80%;
     padding: 0 5% 0 5%;
+    max-height: 450px;
     overflow-y: scroll;
     overflow-x: hidden;
 
@@ -75,7 +76,7 @@ export const ShortedLinksContainer = styled.div`
 
 export const LinkItem = styled.div`
     width: 100%;
-    height: 55px;
+    min-height: 55px;
 
     border-radius: 10px;
     border: solid 1px rgba(0, 0, 0, 0.2);
@@ -111,7 +112,7 @@ export const LinkItem = styled.div`
 
     @media(max-width: 450px) {
         width: 100%;
-        height: 75px;
+        min-height: 75px;
         border-radius: 5px;
         div{
             width: 90%;
