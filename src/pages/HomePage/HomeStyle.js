@@ -31,17 +31,17 @@ export const FormUrl = styled.form`
         color: transparent;
     }
     @media(max-width: 450px) {
-        width: 100%;
+        width: 90%;
         button{
             width: 15%;
-            height: 25px;
-            font-size: 9px;
+            height: 40px;
+            font-size: 12px;
             font-weight: 200;
             border-radius: 5px;
         }
         input{
-            width: 60%;
-            height: 25px;
+            width: 70%;
+            height: 40px;
             border-radius: 5px;
         }
     }
@@ -54,6 +54,10 @@ export const ShortedLinksContainer = styled.div`
     max-height: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 
     ::-webkit-scrollbar {
@@ -108,17 +112,18 @@ export const LinkItem = styled.div`
     }
 
     @media(max-width: 450px) {
+        width: 100%;
+        height: 75px;
         border-radius: 5px;
         div{
             width: 90%;
             padding: 1%;
 
             background-color: #99e599;
-            font-weight: 500;
             flex-direction: column;
             align-items: flex-start;
             p{
-                font-size: 10px;
+                font-size: 14px;
             }
         }
     }
@@ -129,18 +134,12 @@ export const DeleteIcon = styled(FaTrashAlt)`
     font-size: 150%;
     color: #cc0000;
     cursor: pointer;
-    @media(max-width: 450px) {
-        font-size: 120%;
-    }
 `;
 
 export const CopyLink = styled(IoMdCopy)`
     font-size: 150%;
     color: #cc0000;
     cursor: pointer;
-    @media(max-width: 450px) {
-        font-size: 120%;
-    }
 `;
 
 export const CheckCopy = styled(BsCheckAll)`
