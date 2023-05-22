@@ -5,6 +5,14 @@ export const ContainerHeader = styled.div`
     flex-direction: column;
     align-items: center;
 
+    p{
+        font-family: 'Raleway';
+        font-size: 16px;
+        font-weight: 400;
+        /* color: #565656; */
+        margin-right: 10px;
+    }
+
     header{
         width: 100%;
         padding: 2% 10%;
@@ -16,18 +24,11 @@ export const ContainerHeader = styled.div`
         z-index: 1;  
 
         display: flex;
-        justify-content: flex-end;
+        justify-content: ${({auth}) => auth ? 'space-between' : 'flex-end'};
 
         div{
             display: flex;
             justify-content: space-between;
-            p{
-                font-family: 'Raleway';
-                font-size: 16px;
-                font-weight: 700;
-                /* color: #565656; */
-                margin-right: 10px;
-            }
         }
     }
     span{

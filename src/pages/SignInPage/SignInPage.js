@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { ContainerSign } from "../../components/Sign/SignStyle";
 import { FormStyled, InputStyled, ButtonStyled, Error } from "../../components/Sign/FormSign";
 import { LoadingThreeDots } from "../../components/Loading/Loading";
 import Header from "../../components/Header/Header";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 export default function SignInPage() {
     const [loginData, setLoginData] = useState({ email: '', password: '' });
     const [request, setRequest] = useState(false);
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
+
+    const { auth, login } = useAuth();
+
+    useEffect(() => {
+        if (auth) {
+            navigate("/home-user");
+        }
+    }, [])
 
     function singIn(e) {
         setRequest(true);
@@ -21,12 +32,12 @@ export default function SignInPage() {
         axios.post(url, loginData)
             .then(sucess => {
                 setRequest(false);
-                console.log(sucess.data);
-                // login(sucess.data);
-                // navigate("/");
+                login(sucess.data);
+                navigate("/home-user");
             })
             .catch(fail => {
                 setRequest(false);
+                console.log(fail)
                 setError(true);
             });
     }
@@ -41,7 +52,7 @@ export default function SignInPage() {
     }
     return (
         <>
-            <Header activePage={1}/>
+            <Header activePage={1} />
             <ContainerSign>
                 <FormStyled onSubmit={singIn}>
                     <InputStyled

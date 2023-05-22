@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ContainerRanking = styled.div`
     main{
@@ -31,6 +32,7 @@ export const FrameRanking = styled.div`
     width: 80%;
     padding: 2%;
     margin-top: 2%;
+    margin-bottom: 2%;
     height: 200px;
     border: solid 0.5px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
@@ -58,5 +60,17 @@ export const FrameRanking = styled.div`
             font-size: 16px;
             color: #003a37;
         }
+    }
+`;
+
+export const StyledLink2 = styled(Link)`
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Raleway';
+    font-weight: 400;
+    color: #000;
+
+    &:hover {
+        color: #006600;
     }
 `;

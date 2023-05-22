@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import Links from "./Links";
 import ranking from "../../assets/ranking.png";
 import { LoadingCircle } from "../../components/Loading/Loading";
-import { ContainerRanking, FrameRanking } from "./RankingStyle";
+import { ContainerRanking, FrameRanking, StyledLink2 } from "./RankingStyle";
 import Header from "../../components/Header/Header";
+import useAuth from "../../hooks/useAuth";
 
 export default function RankingPage() {
     const [linksRanking, setLinksRanking] = useState(null);
+    const { auth } = useAuth();
 
     useEffect(() => {
         const url = process.env.REACT_APP_GET_RANKING;
@@ -22,7 +24,7 @@ export default function RankingPage() {
 
     return (
         <ContainerRanking>
-            <Header />
+            <Header activePage={auth && 2} />
             <main>
                 <div>
                     <img src={ranking} alt="" />
@@ -38,6 +40,7 @@ export default function RankingPage() {
                         visitCount={l.visitCount}
                     />))}
                 </FrameRanking>
+                <StyledLink2 to={'/sign-up'}>{!auth && 'Crie sua conta para usar nosso serviço!'}</StyledLink2>
             </main>
         </ContainerRanking>
     );
