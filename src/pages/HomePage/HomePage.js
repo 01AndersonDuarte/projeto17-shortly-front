@@ -5,9 +5,9 @@ import axios from "axios";
 import Header from "../../components/Header/Header";
 import useAuth from "../../hooks/useAuth";
 import { InputStyled, ButtonStyled } from "../../components/Sign/FormSign";
-import { ContainerHome, FormUrl } from "./HomeStyle";
-import { LoadingCircle, LoadingThreeDots } from "../../components/Loading/Loading";
-import styled from "styled-components";
+import { ContainerHome, FormUrl, CopyLink, CheckCopy } from "./HomeStyle";
+import { LoadingThreeDots } from "../../components/Loading/Loading";
+import ShortedLinks from "./ShortedLinks";
 
 export default function HomePage() {
     const [userData, setUserData] = useState();
@@ -16,37 +16,55 @@ export default function HomePage() {
 
     const { auth, login } = useAuth();
     const navigate = useNavigate();
-    let config = null;
+    const config = auth && { headers: { Authorization: `Bearer ${auth.token}` } };
+
+    const [reload, setReload] = useState(false);
+    const [copy, setCopy] = useState(false);
 
     useEffect(() => {
         if (!auth) return navigate('/');
 
-        config = { headers: { Authorization: `Bearer ${auth.token}` } };
         const url = process.env.REACT_APP_GET_USER_URLS;
         axios.get(url, config).then((sucess) => {
             setUserData(sucess.data);
-            console.log(sucess.data)
             const persistedAuth = JSON.parse(localStorage.getItem("auth"));
             login({ token: persistedAuth.token, name: sucess.data.name })
         }).catch((error) => {
         });
-    }, []);
+    }, [reload]);
 
     function shortenUrl(e) {
         setRequest(true);
+        setReload(true);
+
         e.preventDefault();
 
         const url = process.env.REACT_APP_SHORTEN_URL;
         axios.post(url, { url: link }, config)
             .then(sucess => {
                 setRequest(false);
+                setReload(false);
                 setLink(`${process.env.REACT_APP_OPEN_URL}${sucess.data.shortUrl}`);
             })
             .catch(error => {
                 setRequest(false);
+                setReload(false);
             })
     }
 
+    function copyURL() {
+        if(!link) return;
+        setCopy(true);
+        let input = document.createElement("input");
+        input.value = link;
+        document.body.appendChild(input);
+
+        input.select();
+        input.setSelectionRange(0, input.value.length);
+
+        document.execCommand("copy");
+        document.body.removeChild(input);
+    }
     return (
         <>
             <Header activePage={1} />
@@ -63,38 +81,13 @@ export default function HomePage() {
                         }}
                         onInvalid={(event) => event.target.setCustomValidity('Por favor, insira um link válido.')}
                     />
-                    <ButtonStyled>
+                    {copy ? <CheckCopy/> : <CopyLink onClick={copyURL} title="Clique para copiar a URL"/>}
+                    <ButtonStyled disabled={request}>
                         {request ? <LoadingThreeDots /> : "Encurtar link"}
                     </ButtonStyled>
                 </FormUrl>
-                <ShortedLinks>
-                    {userData ?
-                        userData.shortenedUrls.map((d) => 
-                            <div>
-                                {d.url.slice(0, 40)}{d.url.length > 40 && '...'}
-                                {d.shortUrl}
-                                {`Quantidade de visitantes: ${d.visitCount}`}
-                            </div>
-                        )
-                        :
-                        <LoadingCircle />}
-                </ShortedLinks>
+                <ShortedLinks config={config} userData={userData} setReload={setReload} />
             </ContainerHome>
         </>
     );
 }
-
-const ShortedLinks = styled.div`
-    width: 70%;
-    div{
-        height: 35px;
-        padding: 1%;
-        border-radius: 10px;
-        margin-bottom: 3%;
-        background-color: #90ee90;
-
-        display: flex;
-        align-items: center;
-
-    }
-`;
