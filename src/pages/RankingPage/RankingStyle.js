@@ -30,11 +30,11 @@ export const ContainerRanking = styled.div`
         main{
             div{
                 img{
-                    width: 25px;
-                    height: 25px;
+                    width: 35px;
+                    height: 35px;
                 }
                 h2{
-                    font-size: 15px;
+                    font-size: 17px;
                 }
             }
         }
@@ -79,10 +79,10 @@ export const FrameRanking = styled.div`
         height: 0%;
         span{
             h3{
-                font-size: 13px;
+                font-size: 15px;
             }
             h4{
-                font-size: 11px;
+                font-size: 13px;
             }
         }  
     }

@@ -53,7 +53,7 @@ export const ContainerHeader = styled.div`
         span{
             margin-top: 20%;
             h1{
-                font-size: 38px;
+                font-size: 40px;
                 margin-bottom: 3%;
             }
         }
