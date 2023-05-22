@@ -31,8 +31,11 @@ export const InputStyled = styled.input`
     padding: 10px;
     font-size: 18px;
     font-weight: 400;
-    @media screen and (max-width: 700px) {
-        width: 100%;
+    @media(max-width: 450px) {
+        width: 90%;
+        border: solid 1px rgba(212, 212, 212, 0.5);
+        border-radius: 10px;
+        font-size: 13px;
     }
 `;
 
@@ -51,6 +54,13 @@ export const ButtonStyled = styled.button`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    @media(max-width: 450px) {
+        width: 90%;
+        height: 35px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
 `;
 
 export const Error = styled.p`

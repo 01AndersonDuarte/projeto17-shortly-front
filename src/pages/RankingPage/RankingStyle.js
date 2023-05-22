@@ -26,6 +26,19 @@ export const ContainerRanking = styled.div`
             }
         }
     }
+    @media(max-width: 450px) {
+        main{
+            div{
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+                h2{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
 `;
 
 export const FrameRanking = styled.div`
@@ -61,6 +74,28 @@ export const FrameRanking = styled.div`
             color: #003a37;
         }
     }
+    @media(max-width: 450px) {
+        width: 90%;
+        height: 0%;
+        span{
+            h3{
+                font-size: 13px;
+            }
+            h4{
+                font-size: 11px;
+            }
+        }  
+    }
+    @media(max-width: 300px) {
+        span{
+            h3{
+                font-size: 11px;
+            }
+            h4{
+                font-size: 9px;
+            }
+        }  
+    }
 `;
 
 export const StyledLink2 = styled(Link)`
@@ -72,5 +107,8 @@ export const StyledLink2 = styled(Link)`
 
     &:hover {
         color: #006600;
+    }
+    @media(max-width: 450px) {
+        font-size: 14px;
     }
 `;
