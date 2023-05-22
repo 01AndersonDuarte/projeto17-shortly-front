@@ -49,9 +49,7 @@ export const FormUrl = styled.form`
 
 export const ShortedLinksContainer = styled.div`
     width: 80%;
-    height: 70%;
     padding: 0 5% 0 5%;
-    max-height: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
 
